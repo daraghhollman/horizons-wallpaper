@@ -1,0 +1,28 @@
+10;Sol;000000;True
+199;Mercury;C46976;True
+299;Venus;C46976;True
+399;Earth;C46976;True
+499;Mars;C46976;True
+599;Jupiter;C46976;True
+699;Saturn;C46976;True
+799;Uranus;C46976;True
+899;Neptune;C46976;True
+999;Pluto;A54077;True
+A801 AA;Ceres;A0C4DC;True
+A807 FA;Vesta;A0C4DC;True
+A802 FA;Pallas;A0C4DC;False
+A849 GA;Hygiea;A0C4DC;False
+A910 TC;Interamnia;A0C4DC;False
+A858 CA;Europa;A0C4DC;False
+A903 KB;Davida;A0C4DC;False
+A866 KA;Sylvia;A0C4DC;False
+A851 OA;Eunomia;A0C4DC;False
+A854 RA;Euphrosyne;A0C4DC;False
+A861 EB;Cybele;A0C4DC;True
+A907 CF;Hektor;A0C4DC;False
+1977 UB;Chiron;A54077;True
+A804 RA;Juno;A0C4DC;False
+C/2022 E3;C/2023 E3;A54077;True
+4822 P-L;Encke;A54077;True
+-143205;Tesla Roadster;000000;True
+-144;Solar Orbiter;000000;True
