@@ -5,17 +5,23 @@ import numpy as np
 
 ### USER SETTINGS/ ###
 
+# Options
+drawTrails = True
+
 # Paths
 outputPath = r"/home/daraghhollman/.config/hypr/wallpaper.jpg"
 idPath = r"/home/daraghhollman/Main/horizons-wallpaper/IDs.txt"
 
 # Orbit Parameters
-orbitCenter = "500@10"
+orbitCenter = "500@10" # "500@10" for Heliocentric, "500@3" for geocentric, "500@4" mars etc...
 scaleFactor = 10
+trailLength = 100 # days
 
 # Colours
 backgroundColour = '#EDEFEC'
 trailColour = "#D3D8D0"
+
+# Features to be added: scale markers, multiple scale functions, dark mode, colour variables
 
 ### /USER SETTINGS ###
 
@@ -23,7 +29,7 @@ today = str(date.today())
 
 def Previous(date):
     date = datetime.strptime(date, '%Y-%m-%d')
-    previous_date = date - timedelta(days=100)
+    previous_date = date - timedelta(days=trailLength)
     return previous_date.strftime('%Y-%m-%d')
 
 def GetPosition(id, centre, date):
@@ -42,7 +48,6 @@ def GetPosition(id, centre, date):
         position = [vector["x"], -vector["y"], vector["z"]]
 
         pastPositions.append(position)
-    #print(f"Number of past positions: {len(pastPositions)}")
 
     bodyDict = {
         "id": id,
@@ -53,7 +58,7 @@ def GetPosition(id, centre, date):
 
     return bodyDict
 
-def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=True):
+def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails):
     image = Image.new('RGB', (1920, 1080), color=backgroundColour)
 
     centerX, centerY = image.size[0] // 2, image.size[1] // 2
@@ -75,7 +80,7 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=True):
 
         trailPositions = [] 
         for pastPosition in body["trail"]:         
-                trailPositions.append([centerX + pastPosition[0]*newScale, centerY + pastPosition[1]*newScale])
+            trailPositions.append([centerX + pastPosition[0]*newScale, centerY + pastPosition[1]*newScale])
 
         trailCoords.append(trailPositions)
 
@@ -84,15 +89,16 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=True):
     for point, name, colour, label, trailPoints in zip(pixelCoords, names, colours, islabelled, trailCoords):
         colour = f"#{str(colour)[2:-1]}"
 
-        trailSize = radius/1.5
+        if drawTrails:
+            trailSize = radius/1.5
 
-        trailPoints.reverse()
+            trailPoints.reverse()
 
-        for pastPoint in trailPoints:
-            x, y = pastPoint
-            draw.ellipse((x - trailSize, y - trailSize, x + trailSize, y + trailSize), fill=trailColour, outline=trailColour)
-            
-            trailSize -= radius/(1.5*len(trailPoints))
+            for pastPoint in trailPoints:
+                x, y = pastPoint
+                draw.ellipse((x - trailSize, y - trailSize, x + trailSize, y + trailSize), fill=trailColour, outline=trailColour)
+                
+                trailSize -= radius/(1.5*len(trailPoints))
 
         x, y = point
         draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=colour, outline=colour)
@@ -117,19 +123,20 @@ def ReadIDList(path):
         isLabelled.append(el)
     return (ids, names, colours, isLabelled)
 
+def main():
+    ids, names, colours, isLabelled = ReadIDList(idPath)
 
+    bodies = []
+    for id in ids:
+        print(f"\rProcessing ID: {id}")
+        
+        if id.isnumeric(): id = int(id)
+        else: id = str(id)
 
+        bodies.append(GetPosition(id, orbitCenter, today))
 
-ids, names, colours, isLabelled = ReadIDList(idPath)
+    print("Drawing bodies...")
+    DrawImage(bodies, names, colours, isLabelled, scale=scaleFactor)
 
-bodies = []
-for id in ids:
-    print(f"\rProcessing ID: {id}")
-    
-    if id.isnumeric(): id = int(id)
-    else: id = str(id)
-
-    bodies.append(GetPosition(id, orbitCenter, today))
-
-print("Drawing bodies...")
-DrawImage(bodies, names, colours, isLabelled, scale=scaleFactor)
+if __name__ == "__main__":
+    main()
