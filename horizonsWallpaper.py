@@ -86,9 +86,7 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
 
     print("Locations found")
 
-    for point, name, colour, label, trailPoints in zip(pixelCoords, names, colours, islabelled, trailCoords):
-        colour = f"#{str(colour)[2:-1]}"
-
+    for trailPoints in trailCoords:
         if drawTrails:
             trailSize = radius/1.5
 
@@ -100,9 +98,17 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
                 
                 trailSize -= radius/(1.5*len(trailPoints))
 
+    for point, colour in zip(pixelCoords, colours):
+        colour = f"#{str(colour)[2:-1]}"
+
         x, y = point
         draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=colour, outline=colour)
+
+    for point, name, colour, label in zip(pixelCoords, names, colours, islabelled):
+        colour = f"#{str(colour)[2:-1]}"
         
+        x, y = point
+
         if label: draw.text((x + textOffsetX, y + textOffsetY), name, fill=colour)
 
     image.save(outputPath)
