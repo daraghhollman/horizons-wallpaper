@@ -27,6 +27,36 @@ trailColour = "#D3D8D0"
 
 today = str(date.today())
 
+def main():
+    ids, names, colours, isLabelled = ReadIDList(idPath)
+
+    bodies = []
+    for id in ids:
+        print(f"\rProcessing ID: {id}")
+        
+        if id.isnumeric(): id = int(id)
+        else: id = str(id)
+
+        bodies.append(GetPosition(id, orbitCenter, today))
+
+    print("Drawing bodies...")
+    DrawImage(bodies, names, colours, isLabelled, scale=scaleFactor)
+
+def ReadIDList(path):
+    ids, names, colours, isLabelled_str = np.loadtxt(path, unpack=True, dtype={'names': ('ID', 'Name', 'Colour', 'isLabelled'), "formats": ('|S15', '|S15', '|S15', '|S15')}, delimiter=";")
+    ids = [str(id)[2:-1] for id in ids]
+    
+    isLabelled = []
+    for el in isLabelled_str:
+        el = str(el)[2:-1]
+
+        if el == "True":
+            el = True
+        elif el == "False":
+            el = False
+        isLabelled.append(el)
+    return (ids, names, colours, isLabelled)
+
 def Previous(date):
     date = datetime.strptime(date, '%Y-%m-%d')
     previous_date = date - timedelta(days=trailLength)
@@ -113,36 +143,6 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
 
     image.save(outputPath)
     print("Image Saved")
-
-def ReadIDList(path):
-    ids, names, colours, isLabelled_str = np.loadtxt(path, unpack=True, dtype={'names': ('ID', 'Name', 'Colour', 'isLabelled'), "formats": ('|S15', '|S15', '|S15', '|S15')}, delimiter=";")
-    ids = [str(id)[2:-1] for id in ids]
-    
-    isLabelled = []
-    for el in isLabelled_str:
-        el = str(el)[2:-1]
-
-        if el == "True":
-            el = True
-        elif el == "False":
-            el = False
-        isLabelled.append(el)
-    return (ids, names, colours, isLabelled)
-
-def main():
-    ids, names, colours, isLabelled = ReadIDList(idPath)
-
-    bodies = []
-    for id in ids:
-        print(f"\rProcessing ID: {id}")
-        
-        if id.isnumeric(): id = int(id)
-        else: id = str(id)
-
-        bodies.append(GetPosition(id, orbitCenter, today))
-
-    print("Drawing bodies...")
-    DrawImage(bodies, names, colours, isLabelled, scale=scaleFactor)
 
 if __name__ == "__main__":
     main()
