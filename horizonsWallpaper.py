@@ -54,7 +54,9 @@ def ReadIDList(path):
             el = True
         elif el == "False":
             el = False
+
         isLabelled.append(el)
+        
     return (ids, names, colours, isLabelled)
 
 def Previous(date):
