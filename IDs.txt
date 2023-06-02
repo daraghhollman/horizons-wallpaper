@@ -43,3 +43,4 @@ A852 QA;Fortuna;A0C4DC;False
 A906 UL;Patroclus;C46976;False
 -143205;Tesla Roadster;000000;True
 -144;Solar Orbiter;000000;True
+-28;JUICE;000000;True

@@ -9,13 +9,13 @@ import numpy as np
 drawTrails = True
 
 # Paths
-outputPath = r"/home/daraghhollman/.config/hypr/wallpaper.jpg"
+outputPath = r"/home/daraghhollman/Photos/Wallpapers/background.jpg"
 idPath = r"/home/daraghhollman/Main/horizons-wallpaper/IDs.txt"
 
 # Orbit Parameters
 orbitCenter = "500@10" # "500@10" for Heliocentric, "500@3" for geocentric, "500@4" mars etc...
 scaleFactor = 10
-trailLength = 100 # days
+trailLength = 45 # days
 
 # Colours
 backgroundColour = '#EDEFEC'
@@ -120,7 +120,7 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
 
     for trailPoints in trailCoords:
         if drawTrails:
-            trailSize = radius/1.5
+            trailSize = radius/2
 
             trailPoints.reverse()
 
@@ -128,7 +128,7 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
                 x, y = pastPoint
                 draw.ellipse((x - trailSize, y - trailSize, x + trailSize, y + trailSize), fill=trailColour, outline=trailColour)
                 
-                trailSize -= radius/(1.5*len(trailPoints))
+                trailSize -= radius/(2*len(trailPoints))
 
     for point, colour in zip(pixelCoords, colours):
         colour = f"#{str(colour)[2:-1]}"
