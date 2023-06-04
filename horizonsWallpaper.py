@@ -16,8 +16,8 @@ idPath = r"/home/daraghhollman/Main/horizons-wallpaper/IDs.txt"
 
 # Orbit Parameters
 orbitCenter = "500@10" # "500@10" for Heliocentric, "500@3" for geocentric, "500@4" mars etc...
-scaleFactor = 9
-trailLength = 50 # days
+scaleFactor = 8.5
+trailLength = 100 # days
 
 # Colours
 backgroundColour = '#EDEFEC'
@@ -35,7 +35,7 @@ def main():
 
     bodies = []
     for id in ids:
-        print(f"\rProcessing ID: {id}")
+        print(f"\rPulling ID: {id}")
         
         if id.isnumeric(): id = int(id)
         else: id = str(id)
