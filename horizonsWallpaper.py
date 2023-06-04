@@ -7,6 +7,8 @@ import numpy as np
 
 # Options
 drawTrails = True
+showScale = True 
+markerRadii = np.arange(1, 25, 1) 
 
 # Paths
 outputPath = r"/home/daraghhollman/Photos/Wallpapers/background.jpg"
@@ -14,12 +16,13 @@ idPath = r"/home/daraghhollman/Main/horizons-wallpaper/IDs.txt"
 
 # Orbit Parameters
 orbitCenter = "500@10" # "500@10" for Heliocentric, "500@3" for geocentric, "500@4" mars etc...
-scaleFactor = 10
-trailLength = 45 # days
+scaleFactor = 9
+trailLength = 50 # days
 
 # Colours
 backgroundColour = '#EDEFEC'
 trailColour = "#D3D8D0"
+markerColour = "#D3D8D0"
 
 # Features to be added: scale markers, multiple scale functions, dark mode, colour variables
 
@@ -101,7 +104,7 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
     textOffsetX = 0
     textOffsetY = -15
 
-    divider = 50
+    divider = 80
 
     pixelCoords = []
     trailCoords = []
@@ -142,6 +145,13 @@ def DrawImage(bodies, names, colours, islabelled, scale=1, drawTrails=drawTrails
         x, y = point
 
         if label: draw.text((x + textOffsetX, y + textOffsetY), name, fill=colour)
+    
+    if showScale:
+        for markerRadius in markerRadii:
+            scaledMarkerRadius = markerRadius * scale * 10**-((markerRadius - divider)/divider)
+
+            size=[centerX-scaledMarkerRadius,centerY-scaledMarkerRadius,centerX+scaledMarkerRadius,centerY+scaledMarkerRadius]
+            draw.arc(size, 0, 360, fill=markerColour, width=1)
 
     image.save(outputPath)
     print("Image Saved")
