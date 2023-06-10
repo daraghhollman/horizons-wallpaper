@@ -1,0 +1,14 @@
+__pycache__/
+.vscode
+venv/
+venv-pypy/
+.pytest_cache
+.idea
+
+
+build
+dist
+*.egg-info
+
+
+background.jpg

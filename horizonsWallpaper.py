@@ -4,6 +4,9 @@ from PIL import Image, ImageDraw
 import numpy as np
 
 ### USER SETTINGS/ ###
+class Settings:
+    OUTPUT_PATH = "./background.jpg"
+    ID_PATH = "./IDs.txt"
 
 # Options
 drawTrails = True
@@ -11,8 +14,8 @@ showScale = True
 markerRadii = np.arange(1, 25, 1) 
 
 # Paths
-outputPath = r"/home/daraghhollman/Photos/Wallpapers/background.jpg"
-idPath = r"/home/daraghhollman/Main/horizons-wallpaper/IDs.txt"
+outputPath = Settings.OUTPUT_PATH
+idPath = Settings.ID_PATH
 
 # Orbit Parameters
 orbitCenter = "500@10" # "500@10" for Heliocentric, "500@3" for geocentric, "500@4" mars etc...
