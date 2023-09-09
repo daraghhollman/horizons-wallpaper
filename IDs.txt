@@ -1,45 +1,46 @@
-10;Sol;000000;True
-199;Mercury;C46976;True
-299;Venus;C46976;True
-399;Earth;C46976;True
-499;Mars;C46976;True
-599;Jupiter;C46976;True
-699;Saturn;C46976;True
-799;Uranus;C46976;True
-899;Neptune;C46976;True
-999;Pluto;A54077;True
-A801 AA;Ceres;A0C4DC;True
-A807 FA;Vesta;A0C4DC;True
-A802 FA;Pallas;A0C4DC;False
-A849 GA;Hygiea;A0C4DC;True
-A910 TC;Interamnia;A0C4DC;False
-A858 CA;Europa;A0C4DC;False
-A903 KB;Davida;A0C4DC;False
-A866 KA;Sylvia;A0C4DC;False
-A851 OA;Eunomia;A0C4DC;False
-A854 RA;Euphrosyne;A0C4DC;False
-A861 EB;Cybele;A0C4DC;False
-A907 CF;Hektor;C46976;False
-1977 UB;Chiron;A54077;True
-A804 RA;Juno;A0C4DC;False
-C/2022 E3;C/2023 E3;A54077;True
-4822 P-L;Encke;A54077;True
-A847 PA;Iris;A0C4DC;False
-A851 OA;Eunomia;A0C4DC;False
-A850 JA;Parthenope;A0C4DC;False
-A847 NA;Hebe;A0C4DC;False
-A852 HA;Thetis;A0C4DC;False
-A852 MA;Melpomene;A0C4DC;False
-A852 FA;Psyche;A0C4DC;False
-A848 HA;Metis;A0C4DC;False
-A847 UA;Flora;A0C4DC;False
-A852 SA;Massalia;A0C4DC;False
-A854 EB;Amphitrite;A0C4DC;False
-A892 XB;Dembowska;A0C4DC;False
-2005 FY9;Makemake;A54077;True
-A879 DA;Nausikaa;A0C4DC;False
-A852 QA;Fortuna;A0C4DC;False
-2003 EL61;Haumea;A54077;False
-A906 UL;Patroclus;C46976;False
--143205;Tesla Roadster;000000;True
--144;Solar Orbiter;000000;True
+10;Sol;0e1419;True
+199;Mercury;ff6565;True
+299;Venus;ff6565;True
+399;Earth;ff6565;True
+499;Mars;ff6565;True
+599;Jupiter;ff6565;True
+699;Saturn;ff6565;True
+799;Uranus;ff6565;True
+899;Neptune;ff6565;True
+999;Pluto;e6c446;True
+A801 AA;Ceres;68d4ff;True
+A807 FA;Vesta;68d4ff;True
+A802 FA;Pallas;68d4ff;False
+A849 GA;Hygiea;68d4ff;True
+A910 TC;Interamnia;68d4ff;False
+A858 CA;Europa;68d4ff;False
+A903 KB;Davida;68d4ff;False
+A866 KA;Sylvia;68d4ff;False
+A851 OA;Eunomia;68d4ff;False
+A854 RA;Euphrosyne;68d4ff;False
+A861 EB;Cybele;68d4ff;False
+A907 CF;Hektor;ff6565;False
+1977 UB;Chiron;e6c446;True
+A804 RA;Juno;68d4ff;False
+C/2022 E3;C/2023 E3;e6c446;True
+4822 P-L;Encke;e6c446;True
+A847 PA;Iris;68d4ff;False
+A851 OA;Eunomia;68d4ff;False
+A850 JA;Parthenope;68d4ff;False
+A847 NA;Hebe;68d4ff;False
+A852 HA;Thetis;68d4ff;False
+A852 MA;Melpomene;68d4ff;False
+A852 FA;Psyche;68d4ff;False
+A848 HA;Metis;68d4ff;False
+A847 UA;Flora;68d4ff;False
+A852 SA;Massalia;68d4ff;False
+A854 EB;Amphitrite;68d4ff;False
+A892 XB;Dembowska;68d4ff;False
+2005 FY9;Makemake;e6c446;True
+A879 DA;Nausikaa;68d4ff;False
+A852 QA;Fortuna;68d4ff;False
+2003 EL61;Haumea;e6c446;False
+A906 UL;Patroclus;ff6565;False
+-143205;Tesla Roadster;0e1419;True
+-144;Solar Orbiter;0e1419;True
+-28;JUICE;0e1419;True

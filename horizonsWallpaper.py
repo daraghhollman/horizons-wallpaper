@@ -20,9 +20,9 @@ scaleFactor = 8.5
 trailLength = 100 # days
 
 # Colours
-backgroundColour = '#EDEFEC'
-trailColour = "#D3D8D0"
-markerColour = "#D3D8D0"
+backgroundColour = '#ffffff'
+trailColour = "#e5e1cf"
+markerColour = "#e5e1cf"
 
 # Features to be added: scale markers, multiple scale functions, dark mode, colour variables
 
